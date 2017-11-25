@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- this file will be ised by the dispatcher servlet to create an application context -->
+
+	<!--tells the dispatcher servlet that all static resources requests will be
+	handled by the mvc element below (feature added in Spring 3.0.4)-->
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+
+	<!--Activate annotation configurations like @requestmapping and registers fetures like
+		validation-support, message conversion, and field formatting support !-->
+	<mvc:annotation-driven/>
+
+	<mvc:default-servlet-handler/>
+
+	<!--Handler mappers can be defined here either:
+		BeanNameUrlHanderMapping, ControllerBeanNameHandlerMapping
+		ControllerClassNameHandlerMapping, DefaultAnnotationHandlerMapping, SimpleUrlHandlerMapping
+		By default, if no mapping beans are provided in this context file, Spring creates and uses
+		BeanNameUrlHandlerMapping and DefaultAnnotationHandlerMapping -->
+
+
+	<!--activate automatic discovery & registration of beans (from annotated classes)-->
+	<context:component-scan base-package="ke.banda.springtutorial"/>
+
+
+
+
+	<!-- Spring comes with several view resolver implemtations e.g: BeanNameViewresolver,
+		 ContentNegotiatingViewResolver, FreeMarkerViewResolver, InternalResourceViewResolver
+		 JasperReportsViewResolver, ResourceBundelViewResolver, TilesViewResolver, TilesViewResolver
+		 UrlBasedViewResolver, VelocityLayoutViewResolver.-->
+	<!--register a TilesViewResolver to use Apache Tiles templating -->
+	<bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
+
+
+	<!--define a bean that tells the TilesResolver of about available bean definitions
+		 TilesConfigurer will load Tiles definition file and make them available for resolver -->
+	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/views/tiles/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

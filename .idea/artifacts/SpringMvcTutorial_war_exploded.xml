@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringMvcTutorial:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringMvcTutorial_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringMvcTutorial/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringMvcTutorial" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring MVC" />
+          <element id="library" level="project" name="org.mockito:mockito-all:1.10.18" />
+          <element id="library" level="project" name="commons-logging-1.2" />
+          <element id="library" level="project" name="tiles-2.2" />
+          <element id="library" level="project" name="taglibs-standard-impl-1.2.5" />
+          <element id="library" level="project" name="slf4j-api-1.6.0" />
+          <element id="library" level="project" name="commons-digester-2.0" />
+          <element id="library" level="project" name="commons-beanutils-core-1.8.3" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="tiles-2.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/tiles-2.2.2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Downloads/tiles-2.2.2" recursive="false" />
+  </library>
+</component>

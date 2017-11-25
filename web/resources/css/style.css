@@ -1,0 +1,47 @@
+*{
+    font-family: Arial, sans-serif,"Abyssinica SIL";
+    font-size:small;
+    /*padding: 5px 5px;*/
+    margin:0;
+    padding:0;
+
+}
+
+html{
+    /*margin: 30px;*/
+}
+
+h1{
+    font-size: large;
+    font-weight: 700;
+    margin-left: 40px;
+}
+
+#header{
+    padding:10px 10px 5px 5px;
+    background-color: cadetblue;
+    margin-bottom: 5px;
+    height: 8%;
+}
+
+section#body{
+    padding: 10px 10px;
+    margin-top:20px;
+    height: 70%;
+}
+
+
+section#footer{
+    background-color: darkolivegreen;
+    clear: both;
+
+}
+
+section#sidemenu{
+    float:left;
+    width: 15%;
+    height: 70%;
+    margin:2px;
+    border: solid lightgray medium;
+    border-radius: 4px;
+}

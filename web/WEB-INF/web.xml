@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+		<!--<param-value>/WEB-INF/applicationContext.xml</param-value>-->
+	</context-param>
+
+	<!--A servlet listener that loads additional configuration alongside the application context
+		this allows beans to be defined in different xml files eg grouped by layers
+		If no Spring configuration files are specified, it will load file applicationContext
+		located in /WEB-INF/applicationContext.xml-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!--sample config files to be loaded by Spring -->
+	<context-param>
+		<param-name>contextConfigs</param-name>
+		<param-value>
+			/WEB-INF/quotes-security.xml <!--paths relative to the application root  -->
+			classpath:service-context.xml <!-- can be used for files located in jars in the web app -->
+			classpath:persistence-context.xml
+			classpath:dataSource-context.xml
+		</param-value>
+	</context-param>
+
+	<!--when this servlet is loaded, it will load the Spring application context from an XML
+	file whose name is based on the name of the servlet (in this case: dispatcher-servlet.xml)
+	 located in the WEB-INF directory-->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern> <!--default servlet handling all url requests -->
+	</servlet-mapping>
+</web-app>
